@@ -2,18 +2,14 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
 import { useAuthAtom } from '../../hooks/useAuthAtom';
-
-type LoginFormValues = {
-  email: string;
-  password: string;
-};
+import type { LoginFormData } from '../../interfaces/LoginFormData';
 
 export function LoginPage() {
-  const { register, handleSubmit } = useForm<LoginFormValues>();
+  const { register, handleSubmit } = useForm<LoginFormData>();
   const { login } = useAuthAtom();
   const navigate = useNavigate();
 
-  const onSubmit = (data: LoginFormValues) => {
+  const onSubmit = (data: LoginFormData) => {
     login({
       id: '1',
       name: 'Letícia Lima',
